@@ -9,7 +9,17 @@ Compile them with:
 `strfile dylan dylan.dat`
 
 Where you copy it depends on OS and fortune install, but the man page should
-tell you the default location.
+tell you the default location. On OSX Homebrew installation, I do:
+
+```
+cp dylan /usr/local/Cellar/fortune/9708/share/games/fortunes/
+mv dylan.dat /usr/local/Cellar/fortune/9708/share/games/fortunes/
+```
+
+*Note:* If you then try to run `fortune dylan` from the same directory, it won't
+work right; fortune seems to prefer trying to read a file with that name in the
+current working directory (if one exists) but doesn't know how to read `dylan`
+without the dat file adjacent to it.
 
 Right now this is just a single file. I might organize it:
 * Random quotes and such that I particularly personally like
