@@ -69,7 +69,7 @@ simultaneously.
 The word candidate comes from the Latin word candidatus, meaning white-robed.
 %
 The shell command "^tyop^typo" will rerun your previous command replacing "tyop"
-with "typo" where it appears.
+with "typo" where it first appears. "^tyop^typo^:G" will do so globally.
 %
 Try out the command `:Ni!` next time you're in Vim.
 %
@@ -107,3 +107,7 @@ projection, called Web Mercator, which dropped terms from the projection that
 were expensive to compute. Google Maps now smoothly transitions to a spherical
 map at further zoom levels.
 %
+The symbol used in music for common time (4/4 time) looks like a "c" but is
+actually a broken circle. This represents the perceived imperfection in the 14th
+and 15 centuries of 2:1 ratios, where 3/4 time was represented by a full circle,
+and common time was called tempus imperfectum.
