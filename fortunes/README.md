@@ -1,5 +1,5 @@
 These are fortune files for the program `fortune` (usually this is Ken Arnold's
-BSD fortune, though 
+BSD fortune, though other ones exist).
 
 I made them because I have my own things I'd like to include, and also because
 while I like some of the default fortunes the massive number of them makes it
