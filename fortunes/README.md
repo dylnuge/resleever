@@ -5,15 +5,14 @@ I made them because I have my own things I'd like to include, and also because
 while I like some of the default fortunes the massive number of them makes it
 harder to choose.
 
-Compile them with:
-`strfile dylan dylan.dat`
+Compile them with e.g.:
+`strfile curiosity{,.dat}`
 
 Where you copy it depends on OS and fortune install, but the man page should
 tell you the default location. On OSX Homebrew installation, I do:
 
 ```
-cp dylan /usr/local/Cellar/fortune/9708/share/games/fortunes/
-mv dylan.dat /usr/local/Cellar/fortune/9708/share/games/fortunes/
+cp curiosity{,.dat} /usr/local/Cellar/fortune/9708/share/games/fortunes/
 ```
 
 *Note:* If you then try to run `fortune dylan` from the same directory, it won't
