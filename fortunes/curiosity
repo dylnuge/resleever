@@ -88,3 +88,9 @@ way.
 %
 In the maple syrup black market, the people who move product are not called
 "mules." They are called "barrel rollers."
+%
+The CSS color "rebeccapurple" was added as a memorial to Eric Meyer's daughter.
+%
+The period ('.') character is a perfectly legal character to include within a
+DNS label name under the normal DNS spec. Since it is usually used as a readable
+label separator, it's generally impossible to use in practice.
