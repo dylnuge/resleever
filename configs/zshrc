@@ -96,20 +96,44 @@ source $ZSH/oh-my-zsh.sh
 # BEGIN DYLAN'S ZSHRC
 #######################################
 
+# Run ssh-add at start of session to use keyring over password entry
+# (this should be removed from a zshrc being used on a public system)
+ssh-add -K
+
 #######################################
 # PATH
 #######################################
 
 # Add Python bin (contains aws-cli and other pip3 installs)
 # export PATH=~/Library/Python/3.6/bin:$PATH
-# Add personal bin
+
+# Add personal bin and local sbin
 export PATH=~/bin:$PATH
+export PATH="/usr/local/sbin:$PATH"
+
+# Add hidden local bin
+export PATH=/Users/dylan/.local/bin:$PATH
+
+# Add LLVM bin
+export PATH=/usr/local/opt/llvm/bin:$PATH
+
+# Add go bin
+export PATH=~/go/bin:$PATH
+
+# Add Chrome devtools
+export PATH=/Users/dylan/projects/chrome/depot_tools:$PATH
 
 # Make default python the right one
 # alias python=/usr/local/bin/python3
 # alias python2=/usr/bin/python
 # alias pip2=/usr/local/bin/pip
 # alias pip=/usr/local/bin/pip3
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/dylan/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dylan/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/dylan/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dylan/google-cloud-sdk/completion.zsh.inc'; fi
 
 #######################################
 # ALIASES
@@ -167,5 +191,9 @@ alias npmadd="npm install --save-exact"
 
 alias pdb="python3 -m pdb"
 
-# Make an __init.py__ in current directory
 alias pyinit="touch __init__.py"
+
+# The next line updates PATH for Netlify's Git Credential Helper.
+if [ -f '/Users/dylan/.netlify/helper/path.zsh.inc' ]; then source '/Users/dylan/.netlify/helper/path.zsh.inc'; fi
+# The next line sources Haskell (ghcup)'s configurations
+[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
