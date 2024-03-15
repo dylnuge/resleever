@@ -96,20 +96,44 @@ source $ZSH/oh-my-zsh.sh
 # BEGIN DYLAN'S ZSHRC
 #######################################
 
+# Run ssh-add at start of session to use keyring over password entry
+# (this should be removed from a zshrc being used on a public system)
+ssh-add --apple-use-keychain
+
 #######################################
 # PATH
 #######################################
 
 # Add Python bin (contains aws-cli and other pip3 installs)
 # export PATH=~/Library/Python/3.6/bin:$PATH
-# Add personal bin
+
+# Add personal bin and local sbin
 export PATH=~/bin:$PATH
+export PATH="/usr/local/sbin:$PATH"
+
+# Add hidden local bin
+export PATH=/Users/dylan/.local/bin:$PATH
+
+# Add LLVM bin
+export PATH=/usr/local/opt/llvm/bin:$PATH
+
+# Add go bin
+export PATH=~/go/bin:$PATH
+
+# Add Chrome devtools
+export PATH=/Users/dylan/projects/chrome/depot_tools:$PATH
 
 # Make default python the right one
 # alias python=/usr/local/bin/python3
 # alias python2=/usr/bin/python
 # alias pip2=/usr/local/bin/pip
 # alias pip=/usr/local/bin/pip3
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/dylan/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dylan/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/dylan/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dylan/google-cloud-sdk/completion.zsh.inc'; fi
 
 #######################################
 # ALIASES
@@ -167,5 +191,43 @@ alias npmadd="npm install --save-exact"
 
 alias pdb="python3 -m pdb"
 
-# Make an __init.py__ in current directory
 alias pyinit="touch __init__.py"
+
+# The next line updates PATH for Netlify's Git Credential Helper.
+if [ -f '/Users/dylan/.netlify/helper/path.zsh.inc' ]; then source '/Users/dylan/.netlify/helper/path.zsh.inc'; fi
+# The next line sources Haskell (ghcup)'s configurations
+[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
+
+# Set stuff up for NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# Zsh hook to autorun nvm use on entering directories
+# TODO(dylan): move this to hooks files
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
+      nvm use
+    fi
+  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
+# Freshpaint environment variables
+export ENV=dev
+export PERFALYTICS_DB_CONN_STRING="host=localhost port=7432 user=postgres dbname=postgres sslmode=disable"
+export SUMMARY_DB_CONN_STRING="host=localhost port=7433 user=postgres dbname=postgres sslmode=disable"
+export PERSONAS_DB_CONN_STRING="host=localhost port=7434 user=postgres dbname=postgres sslmode=disable"
+export MOCK_S3_HOST="http://127.0.0.1:9090"
