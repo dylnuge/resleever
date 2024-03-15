@@ -188,6 +188,12 @@ prompt_nonzero_return() {
   fi
 }
 
+prompt_jobs_running() {
+  if [[ ${#jobstates} -ne 0 ]]; then
+    prompt_segment default cyan "[${#jobstates}]"
+  fi
+}
+
 prompt_timestamp() {
   # Use timestamp to alert user that it's getting late. Time between 7 AM and
   # 8 PM is shown in green. Time between 8 PM and 12 AM is shown in yellow. Time
@@ -207,6 +213,7 @@ prompt_timestamp() {
 build_rprompt() {
   RETVAL=$?
   prompt_nonzero_return
+	prompt_jobs_running
   prompt_timestamp
 }
 
