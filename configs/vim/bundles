@@ -1,0 +1,24 @@
+# Repos for pathogen packages to fetch into bundles folder
+
+# vimproc is needed for other scripts to execute asyncronously
+# Note that this one needs to be compiled (with `make`)
+git@github.com:Shougo/vimproc.vim.git
+
+# General tools: ALE, CtrlP, Nerdtree
+git@github.com:dense-analysis/ale.git
+git@github.com:kien/ctrlp.vim.git
+git@github.com:preservim/nerdtree.git
+
+# Themes and prettyness
+git@github.com:altercation/vim-colors-solarized.git
+
+# Git
+git@github.com:tpope/vim-fugitive.git
+git@github.com:airblade/vim-gitgutter.git
+
+# Typescript + JSX
+git@github.com:Quramy/tsuquyomi.git
+git@github.com:MaxMEllon/vim-jsx-pretty.git
+
+# Golamg
+git@github.com:fatih/vim-go.git
