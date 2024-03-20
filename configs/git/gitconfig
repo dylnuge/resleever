@@ -41,11 +41,11 @@
   status = auto
   branch = auto
 [core]
-  pager = less
+  pager = less -FRX
   excludesfile = ~/.gitignore
   safecrlf = true
   autocrlf = input
-	editor = /usr/bin/vim
+  editor = /usr/bin/vim
 [push]
   default = current
 [user]
