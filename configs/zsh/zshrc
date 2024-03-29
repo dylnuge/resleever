@@ -161,6 +161,9 @@ function gupd() {
   git rebase master &&
   git push -f
 }
+function groot() {
+  cd $(git rev-parse --show-toplevel)
+}
 
 # Configure things fast
 alias zcfg="vim ~/.zshrc"
@@ -224,10 +227,3 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
-
-# Freshpaint environment variables
-export ENV=dev
-export PERFALYTICS_DB_CONN_STRING="host=localhost port=7432 user=postgres dbname=postgres sslmode=disable"
-export SUMMARY_DB_CONN_STRING="host=localhost port=7433 user=postgres dbname=postgres sslmode=disable"
-export PERSONAS_DB_CONN_STRING="host=localhost port=7434 user=postgres dbname=postgres sslmode=disable"
-export MOCK_S3_HOST="http://127.0.0.1:9090"
