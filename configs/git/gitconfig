@@ -5,37 +5,19 @@
   di = diff --color-words
   br = branch
   ff = merge --ff-only
-  move   = mv
-  ren    = mv
-  rename = mv
   up     = pull --rebase
   update = pull --rebase
-  svnup     = !git stash && git svn rebase && git stash apply
-  svnupdate = !git stash && git svn rebase && git stash apply
   st   = status
   stat = status
-  del    = rm
-  delete = rm
-  remove = rm
   export = archive
-  ann    = blame
-  praise = blame
   cat  = show
-  list = show
   ls   = show
   type = cat-file -t
   dump = cat-file -p
   pick = cherry-pick
 
-  untrack-ignored = !git-untracked-ignored
-  info = !git-info
-  amend = commit --amend -C HEAD
   tree = log --graph --pretty=oneline
   hist = log --graph --pretty=format:'%C(cyan)%h%Creset -%C(yellow)%d%Creset %s %C(magenta)[%an]%Creset %Cgreen(%ad)%Creset' --date=relative
-
-  wip = commit -am "WIP"
-
-  vimdiff = difftool -y -t vimdiff
 [color]
   diff = auto
   status = auto
@@ -53,3 +35,5 @@
   email = dylnuge@gmail.com
 [branch]
   autosetuprebase = always
+[merge]
+  tool = vimdiff
