@@ -17,6 +17,8 @@ set clipboard=unnamed                                        " yank and paste wi
 set directory-=.                                             " don't store swapfiles in the current directory
 set encoding=utf-8
 set noexpandtab                                              " don't expand tabs to spaces
+set nocursorline                                             " don't highlight current line
+set hlsearch                                                 " highlight search by default
 set ignorecase                                               " case-insensitive search
 set incsearch                                                " search as you type
 set laststatus=2                                             " always show statusline
@@ -72,6 +74,11 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 nnoremap <leader><space> :call whitespace#strip_trailing()<CR>
 noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+" Double j in insert mode is generally an indicator of an intent to be in
+" command mode (this applies for many combos of hjkl, but jj in particular
+" doesn't seem to come up in normal code; honestly I can probably kill this)
+inoremap jj <ESC>
 
 " in visual mode tab indents selection, shift-tab unindents
 vmap <silent> <Tab> >gv
@@ -135,6 +142,30 @@ map <C-n> :NERDTreeToggle<CR>
 
 " Don't copy the contents of an overwritten selection.
 vnoremap p "_dP
+
+" Use solarized theme only if we have 256 bit colors and a GUI. Originally, this
+" was to ensure things looked OK
+" This probably needs to be expanded to capture my Windows and Linux terminal
+" emulators as well, but for now, leave it.
+if (&t_Co == 256 || has('gui_running'))
+  colorscheme solarized
+else
+  colorscheme desert
+endif
+
+" This is a hacky way to read whether I'm in light or dark mode on my terminal.
+" Practically, almost everything I use is in dark mode unless I'm taking
+" screenshots, so it should be fine, but might be worth revisiting in the
+" future.
+if ($ITERM_PROFILE == 'Light')
+  set background=light
+else
+  set background=dark
+endif
+
+" As a workaround to the above hack, alias Bkl and Bkd to swap backgrounds
+command -nargs=0 Bkl set background=light
+command -nargs=0 Bkd set background=dark
 
 " Tell ALE to use the local prettier config
 let g:ale_javascript_prettier_use_local_config = 1
