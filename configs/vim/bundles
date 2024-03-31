@@ -20,5 +20,8 @@ git@github.com:airblade/vim-gitgutter.git
 git@github.com:Quramy/tsuquyomi.git
 git@github.com:MaxMEllon/vim-jsx-pretty.git
 
-# Golamg
+# Golang
 git@github.com:fatih/vim-go.git
+
+# Rust
+git@github.com:rust-lang/rust.vim.git
