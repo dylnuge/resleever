@@ -145,6 +145,9 @@ if [ -f '/Users/dylan/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dyl
 alias v="vim"
 alias g="git"
 
+# Also: more reasonable program shortnames
+alias tf="terraform"
+
 # Git commands I run way too often
 alias ga="git add"
 alias gst="git status"
@@ -182,18 +185,10 @@ alias ls='ls -AG'
 
 # Get to where we need to be
 alias proj="cd ~/projects"
-alias chron="cd ~/projects/chronicler"
-
-# Run what we want there
-alias dbuild="docker-compose build"
-alias dtest="docker-compose up test"
-alias dup="docker-compose up"
-alias dupd="docker-compose up -d"
 
 alias npmadd="npm install --save-exact"
 
 alias pdb="python3 -m pdb"
-
 alias pyinit="touch __init__.py"
 
 # The next line updates PATH for Netlify's Git Credential Helper.
