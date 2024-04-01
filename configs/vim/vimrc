@@ -164,8 +164,8 @@ else
 endif
 
 " As a workaround to the above hack, alias Bkl and Bkd to swap backgrounds
-command -nargs=0 Bkl set background=light
-command -nargs=0 Bkd set background=dark
+command -nargs=0 Bgl set background=light
+command -nargs=0 Bgd set background=dark
 
 " Tell ALE to use the local prettier config
 let g:ale_javascript_prettier_use_local_config = 1
