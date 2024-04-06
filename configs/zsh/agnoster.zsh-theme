@@ -172,7 +172,6 @@ build_prompt() {
   prompt_context
   prompt_dir
   prompt_git
-  prompt_hg
   prompt_end
 }
 
@@ -213,7 +212,7 @@ prompt_timestamp() {
 build_rprompt() {
   RETVAL=$?
   prompt_nonzero_return
-	prompt_jobs_running
+  prompt_jobs_running
   prompt_timestamp
 }
 
