@@ -16,6 +16,9 @@ git@github.com:altercation/vim-colors-solarized.git
 git@github.com:tpope/vim-fugitive.git
 git@github.com:airblade/vim-gitgutter.git
 
+# Terraform
+git@github.com:hashivim/vim-terraform.git
+
 # Typescript + JSX
 git@github.com:Quramy/tsuquyomi.git
 git@github.com:MaxMEllon/vim-jsx-pretty.git
