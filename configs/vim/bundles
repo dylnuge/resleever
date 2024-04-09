@@ -20,6 +20,7 @@ git@github.com:airblade/vim-gitgutter.git
 git@github.com:hashivim/vim-terraform.git
 
 # Typescript + JSX
+git@github.com:leafgarland/typescript-vim.git
 git@github.com:Quramy/tsuquyomi.git
 git@github.com:MaxMEllon/vim-jsx-pretty.git
 
