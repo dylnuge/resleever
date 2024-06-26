@@ -178,6 +178,11 @@ let g:ale_fix_on_save = 1
 let g:ale_linters = {'jsx': ['stylelint', 'tslint']}
 let g:ale_linter_aliases = {'jsx': 'css'}
 
+" Load fzf and run file search with CTRL+P, ripgrep with CTRL+G
+set rtp+=/opt/homebrew/opt/fzf
+nnoremap <C-p> :Files<CR>
+nnoremap <C-g> :Rg<CR>
+
 " Load local vimrc if one is present
 " Since this is now just my personal vimrc, I only use local for things that
 " should remain system-specific, like a company style guide override for a work
