@@ -41,9 +41,7 @@ and I am grateful to the teachers, mentors, colleagues, and friends I've had.
 You may freely steal anything from this. As mentioned in authors, I didn't write
 all (or even most) of the config files. This isn't exactly proprietary stuff.
 
-The Python installer I did write, and I release under the MIT License.
-
-If you're looking to attribute someone, feel free to DM me on Twitter. I might
+If you're looking to attribute someone, feel free to DM me on Mastadon. I might
 know who _actually_ wrote the code you're pulling if it isn't mine.
 
 ## Motivation
