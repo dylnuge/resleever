@@ -139,6 +139,10 @@ if [ -f '/Users/dylan/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dyl
 # ALIASES
 #######################################
 
+# Use neovim by default, with vim bound to cvim (for classic vim)
+alias cvim="/opt/homebrew/bin/vim"
+alias vim="/opt/homebrew/bin/nvim"
+
 # Save two keystrokes in vain futile attempt to be uber leet while ensuring
 # I can never use anyone else's computer. Also ensure I never realize the time
 # saved here by including a long comment that took a minute to write.
